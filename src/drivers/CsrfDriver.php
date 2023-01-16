@@ -1,8 +1,17 @@
 <?php
+    /**
+     *
+     */
     namespace IOJaegers\CSRF\drivers;
 
-    class CsrfDriver
+    /**
+     *
+     */
+    abstract class CsrfDriver
     {
+        /**
+         *
+         */
         public function __construct()
         {
 
