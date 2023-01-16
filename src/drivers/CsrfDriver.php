@@ -9,14 +9,6 @@
      */
     abstract class CsrfDriver
     {
-        /**
-         *
-         */
-        public function __construct()
-        {
-
-        }
-
 
 
     }
