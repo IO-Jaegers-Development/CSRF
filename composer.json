@@ -7,7 +7,7 @@
     {
         "psr-4":
         {
-            "IoJaegers\\Csrf\\": "src/"
+            "IOJaegers\\CSRF\\": "src/"
         }
     },
     "authors":
