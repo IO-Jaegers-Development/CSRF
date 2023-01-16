@@ -13,8 +13,12 @@
     "authors":
     [
         {
-            "name": "IO-Jægers"
+            "name": "Kent vejrup Madsen",
+            "email": "kent.vejrup.madsen@designermadsen.dk"
         }
     ],
-    "require": {}
+    "require": {
+        "io-jaegers/hrbf": "dev-main"
+    },
+    "minimum-stability": "dev"
 }

@@ -17,7 +17,20 @@
 
         }
 
+        /**
+         * @return void
+         */
+        public function onStartup(): void
+        {
 
+        }
 
+        /**
+         * @return string|null
+         */
+        public function requestToken(): ?string
+        {
+            return "";
+        }
     }
 ?>
