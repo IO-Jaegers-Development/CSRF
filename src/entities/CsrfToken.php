@@ -7,16 +7,8 @@
     /**
      *
      */
-    class CsrfToken
+    abstract class CsrfToken
     {
-        /**
-         *
-         */
-        public function __construct( ?string $value )
-        {
-            $this->setToken( $value );
-        }
-
         // variables
         private ?string $token = null;
 
