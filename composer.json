@@ -1,6 +1,6 @@
 {
     "name": "io-jaegers/csrf",
-    "description": "csrf security",
+    "description": "CSRF security with different interfaces and drivers. For the Storage and how to use it.",
     "type": "library",
     "license": "MIT",
     "autoload":
