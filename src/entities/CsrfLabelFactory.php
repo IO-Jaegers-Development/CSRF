@@ -2,10 +2,11 @@
     /**
      *
      */
-    namespace IOJaegers\CSRF;
+    namespace IOJaegers\CSRF\entities;
 
     use Random\Engine\Secure;
     use Random\Randomizer;
+
 
     /**
      *
@@ -29,7 +30,6 @@
             );
         }
 
-
         // Variables
         private CsrfController|null $controller = null;
         private Randomizer|null $random = null;
@@ -47,7 +47,7 @@
             $label = bin2hex( $bytes );
 
             $controller = $this->getController();
-            $controller->setToken( $label );
+            $controller->setTokenSecret( $label );
         }
 
 

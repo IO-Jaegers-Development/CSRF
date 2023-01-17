@@ -9,12 +9,19 @@
      */
     class Defaults
     {
-        public static function UUID_prefix(): string
+        /**
+         * @return string
+         */
+        public final static function getPrefixUUID(): string
         {
-            return "Csrf_ID__";
+            return 'Csrf_ID__';
         }
 
-        public static function UUID_normalise(): bool
+
+        /**
+         * @return bool
+         */
+        public final static function getIsToNormaliseUUID(): bool
         {
             return true;
         }
