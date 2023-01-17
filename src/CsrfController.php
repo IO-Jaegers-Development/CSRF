@@ -4,6 +4,7 @@
      */
     namespace IOJaegers\CSRF;
 
+
     /**
      *
      */
@@ -22,7 +23,10 @@
          */
         public function onStartup(): void
         {
+            $label = new CsrfLabelFactory($this);
+            print_r($label->generateLabel());
 
+            print("\r\n");
         }
 
         /**

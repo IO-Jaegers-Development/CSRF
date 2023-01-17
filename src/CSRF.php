@@ -22,8 +22,8 @@
                 new CsrfController()
             );
 
-            $this->setFactory(
-                new CsrfFactory(
+            $this->setLabelFactory(
+                new CsrfLabelFactory(
                     $this->getController()
                 )
             );
@@ -35,7 +35,8 @@
 
             // Local variables
         private ?CsrfController $controller = null;
-        private ?CsrfFactory $factory = null;
+        private ?CsrfLabelFactory $labelFactory = null;
+
 
         // Wrapper functions
         /**
@@ -85,8 +86,6 @@
         {
             $facade = CSRF::getCsrf();
             $facade->getController()->onStartup();
-
-
         }
 
         /**
@@ -106,19 +105,19 @@
         }
 
         /**
-         * @return CsrfFactory|null
+         * @return CsrfLabelFactory|null
          */
-        public function getFactory(): ?CsrfFactory
+        public function getLabelFactory(): ?CsrfLabelFactory
         {
-            return $this->factory;
+            return $this->labelFactory;
         }
 
         /**
-         * @param CsrfFactory|null $factory
+         * @param CsrfLabelFactory|null $labelFactory
          */
-        public function setFactory( ?CsrfFactory $factory ): void
+        public function setLabelFactory(?CsrfLabelFactory $labelFactory ): void
         {
-            $this->factory = $factory;
+            $this->labelFactory = $labelFactory;
         }
     }
 ?>
