@@ -1,4 +1,7 @@
 <?php
+    /**
+     *
+     */
     namespace IOJaegers\CSRF\interface;
 
     /**
