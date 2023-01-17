@@ -4,29 +4,16 @@
      */
     namespace IOJaegers\CSRF\entities\templates;
 
-    use IOJaegers\CSRF\entities\UUIDToken;
-
 
     /**
      *
      */
     abstract class CsrfTokenTemplate
     {
-        /**
-         *
-         */
-        protected final function instantiateUUID(): void
-        {
-            $this->setUuid(
-                new UUIDToken( generate: true )
-            );
-        }
-
         // Variables
         const zero = 0;
 
         private ?string $token = null;
-        private ?UUIDToken $uuid = null;
 
         // Accessors
         /**
@@ -43,22 +30,6 @@
         public final function setToken( ?string $token ): void
         {
             $this->token = $token;
-        }
-
-        /**
-         * @return UUIDToken|null
-         */
-        public final function getUuid(): ?UUIDToken
-        {
-            return $this->uuid;
-        }
-
-        /**
-         * @param UUIDToken|null $uuid
-         */
-        public final function setUuid( ?UUIDToken $uuid ): void
-        {
-            $this->uuid = $uuid;
         }
 
         // Class states
@@ -89,7 +60,7 @@
             }
 
             $sizeOfToken = strlen( $this->getToken() );
-            return ($sizeOfToken == self::zero);
+            return ( $sizeOfToken == self::zero );
         }
     }
 ?>

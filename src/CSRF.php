@@ -4,8 +4,10 @@
      */
     namespace IOJaegers\CSRF;
 
+    use IOJaegers\CSRF\configuration\Configuration;
     use IOJaegers\CSRF\entities\CsrfController;
     use IOJaegers\CSRF\entities\CsrfLabelFactory;
+    use IOJaegers\CSRF\entities\templates\CsrfInterfaceIO;
     use IOJaegers\CSRF\entities\templates\singleton\CsrfSingleton;
 
 
@@ -38,6 +40,8 @@
             // Local variables
         private ?CsrfController $controller = null;
         private ?CsrfLabelFactory $labelFactory = null;
+        private ?CsrfInterfaceIO $io = null;
+
 
 
         /**
@@ -45,7 +49,7 @@
          */
         public final function setup(): void
         {
-            $this->getController()->load();
+            $this->getController()->load( $this->getIo() );
 
             if( $this->getController()->isTokenEmpty() )
             {
@@ -67,7 +71,7 @@
         protected function generate(): void
         {
             $this->getLabelFactory()->generateLabel();
-            $this->getController()->save();
+            $this->getController()->save($this->getIo());
         }
 
 
@@ -152,6 +156,22 @@
         public final function setLabelFactory(?CsrfLabelFactory $labelFactory ): void
         {
             $this->labelFactory = $labelFactory;
+        }
+
+        /**
+         * @return CsrfInterfaceIO|null
+         */
+        public function getIo(): ?CsrfInterfaceIO
+        {
+            return $this->io;
+        }
+
+        /**
+         * @param CsrfInterfaceIO|null $io
+         */
+        public function setIo(?CsrfInterfaceIO $io): void
+        {
+            $this->io = $io;
         }
     }
 ?>

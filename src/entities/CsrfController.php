@@ -27,6 +27,7 @@
          */
         public function load( CsrfInterfaceIO $io ): void
         {
+
         }
 
         /**

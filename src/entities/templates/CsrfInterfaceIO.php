@@ -12,16 +12,8 @@
      */
     interface CsrfInterfaceIO
     {
-        /**
-         * @param string $id
-         * @return CsrfToken|null
-         */
-        public function load( string $id ): ?CsrfToken;
+        public function load(): ?CsrfToken;
 
-        /**
-         * @param array $values
-         * @return bool
-         */
-        public function save( array $values ): bool;
+        public function save(): bool;
     }
 ?>

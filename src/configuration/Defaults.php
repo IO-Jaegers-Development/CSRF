@@ -4,8 +4,6 @@
      */
     namespace IOJaegers\CSRF\configuration;
 
-    use IOJaegers\CSRF\entities\types\CsrfPersistentType;
-
     /**
      *
      */
@@ -14,27 +12,18 @@
         /**
          * @return string
          */
-        public final static function UUID_prefix(): string
+        public final static function getPrefixUUID(): string
         {
-            return "Csrf_ID__";
+            return 'Csrf_ID__';
         }
 
 
         /**
          * @return bool
          */
-        public final static function UUID_normalise(): bool
+        public final static function getIsToNormaliseUUID(): bool
         {
             return true;
-        }
-
-
-        /**
-         * @return CsrfPersistentType
-         */
-        public final static function persistentType(): CsrfPersistentType
-        {
-            return CsrfPersistentType::PHPSession;
         }
     }
 ?>

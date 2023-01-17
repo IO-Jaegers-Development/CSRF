@@ -4,7 +4,6 @@
      */
     namespace IOJaegers\CSRF\configuration;
 
-    use IOJaegers\CSRF\entities\types\CsrfPersistentType;
 
     /**
      *
@@ -14,8 +13,6 @@
         // Variables
         private static ?string $PrefixUUID = null;
         private static ?bool $isToNormaliseUUID = null;
-        private static ?CsrfPersistentType $persistentForm = null;
-
 
         // Accessors
         /**
@@ -25,7 +22,7 @@
         {
             if( is_null( self::$PrefixUUID ) )
             {
-                self::setPrefixUUID( Defaults::UUID_prefix() );
+                self::setPrefixUUID( Defaults::getPrefixUUID() );
             }
 
             return self::$PrefixUUID;
@@ -46,7 +43,7 @@
         {
             if( is_null( self::$isToNormaliseUUID ) )
             {
-                self::setIsToNormaliseUUID( Defaults::UUID_normalise() );
+                self::setIsToNormaliseUUID( Defaults::getIsToNormaliseUUID() );
             }
 
             return self::$isToNormaliseUUID;
@@ -58,22 +55,6 @@
         public static function setIsToNormaliseUUID( ?bool $isToNormaliseUUID ): void
         {
             self::$isToNormaliseUUID = $isToNormaliseUUID;
-        }
-
-        /**
-         * @return CsrfPersistentType|null
-         */
-        public static function getPersistentForm(): ?CsrfPersistentType
-        {
-            return self::$persistentForm;
-        }
-
-        /**
-         * @param CsrfPersistentType|null $persistentForm
-         */
-        public static function setPersistentForm( ?CsrfPersistentType $persistentForm ): void
-        {
-            self::$persistentForm = $persistentForm;
         }
     }
 ?>
