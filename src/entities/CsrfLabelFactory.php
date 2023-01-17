@@ -2,10 +2,11 @@
     /**
      *
      */
-    namespace IOJaegers\CSRF;
+    namespace IOJaegers\CSRF\entities;
 
     use Random\Engine\Secure;
     use Random\Randomizer;
+
 
     /**
      *

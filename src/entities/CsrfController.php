@@ -2,7 +2,7 @@
     /**
      *
      */
-    namespace IOJaegers\CSRF;
+    namespace IOJaegers\CSRF\entities;
 
 
     /**

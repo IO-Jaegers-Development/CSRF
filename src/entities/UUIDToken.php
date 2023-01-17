@@ -5,6 +5,8 @@
     namespace IOJaegers\CSRF\entities;
 
     use IOJaegers\CSRF\configuration\Defaults;
+    use IOJaegers\Hrbf\StringTransformer;
+
 
     /**
      *
@@ -42,7 +44,7 @@
         protected function normalise(): void
         {
             $this->setToken(
-                strtoupper(
+                StringTransformer::Upper(
                     $this->getToken()
                 )
             );

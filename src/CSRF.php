@@ -4,6 +4,8 @@
      */
     namespace IOJaegers\CSRF;
 
+    use IOJaegers\CSRF\entities\CsrfController;
+    use IOJaegers\CSRF\entities\CsrfLabelFactory;
     use IOJaegers\CSRF\singleton\CsrfSingleton;
 
 
