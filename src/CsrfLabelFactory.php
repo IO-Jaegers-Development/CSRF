@@ -20,7 +20,7 @@
         {
             $this->setController( $controller );
 
-            $this->setLength(32);
+            $this->setLength( 48 );
 
             $this->setRandom(
                 new Randomizer(
@@ -29,34 +29,33 @@
             );
         }
 
+
         // Variables
         private CsrfController|null $controller = null;
         private Randomizer|null $random = null;
 
         private ?int $length = null;
 
+
         // Code
         /**
-         * @return string
+         * @return void
          */
-        protected function generateBytes(): string
+        public final function generateLabel(): void
         {
-            return $this->getRandom()->getBytes( $this->getLength() );
+            $bytes = $this->getRandom()->getBytes( $this->getLength() );
+            $label = bin2hex( $bytes );
+
+            $controller = $this->getController();
+            $controller->setToken( $label );
         }
 
-        /**
-         * @return string
-         */
-        public function generateLabel(): string
-        {
-            return bin2hex( $this->generateBytes() );
-        }
 
         // Accessors
         /**
          * @return CsrfController|null
          */
-        public function getController(): ?CsrfController
+        public final function getController(): ?CsrfController
         {
             return $this->controller;
         }
@@ -64,7 +63,7 @@
         /**
          * @param CsrfController|null $controller
          */
-        public function setController( ?CsrfController $controller ): void
+        public final function setController( ?CsrfController $controller ): void
         {
             $this->controller = $controller;
         }
@@ -72,7 +71,7 @@
         /**
          * @return Randomizer|null
          */
-        public function getRandom(): ?Randomizer
+        public final function getRandom(): ?Randomizer
         {
             return $this->random;
         }
@@ -80,7 +79,7 @@
         /**
          * @param Randomizer|null $random
          */
-        public function setRandom(?Randomizer $random): void
+        public final function setRandom( ?Randomizer $random ): void
         {
             $this->random = $random;
         }
@@ -88,7 +87,7 @@
         /**
          * @return int|null
          */
-        public function getLength(): ?int
+        public final function getLength(): ?int
         {
             return $this->length;
         }
@@ -96,7 +95,7 @@
         /**
          * @param int|null $length
          */
-        public function setLength( ?int $length ): void
+        public final function setLength( ?int $length ): void
         {
             $this->length = $length;
         }
