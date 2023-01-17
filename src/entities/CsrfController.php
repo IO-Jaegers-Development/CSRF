@@ -5,6 +5,8 @@
     namespace IOJaegers\CSRF\entities;
 
 
+    use IOJaegers\CSRF\entities\templates\CsrfInterfaceIO;
+
     /**
      *
      */
@@ -19,17 +21,19 @@
         }
 
         /**
+         * @param CsrfInterfaceIO $io
          * @return void
+         *
          */
-        public function load(): void
+        public function load( CsrfInterfaceIO $io ): void
         {
-
         }
 
         /**
+         * @param CsrfInterfaceIO $io
          * @return void
          */
-        public function save(): void
+        public function save( CsrfInterfaceIO $io ): void
         {
 
         }
@@ -38,6 +42,23 @@
         // Variable
         private ?CsrfToken $token = null;
         const zero = 0;
+
+        /**
+         * @return CsrfToken|null
+         */
+        public final function getToken(): ?CsrfToken
+        {
+            return $this->token;
+        }
+
+
+        /**
+         * @param CsrfToken|null $token
+         */
+        public final function setToken( ?CsrfToken $token ): void
+        {
+            $this->token = $token;
+        }
 
         /**
          * @return string|null
@@ -60,14 +81,12 @@
          */
         public final function isTokenEmpty(): bool
         {
-            $isValueSet = isset( $this->token );
+            $isValueSet = $this->getToken()->isTokenSet();
             $isSizeEmpty = false;
 
             if( $isValueSet )
             {
-                $size_of_token = $this->lengthOfToken();
-
-                if( $size_of_token == self::zero )
+                if( $this->getToken()->isTokenEmpty() )
                 {
                     $isSizeEmpty = true;
                 }

@@ -11,15 +11,15 @@
      *
      */
     abstract class CsrfTokenTemplate
-        implements CsrfInterfaceIO
     {
         /**
          *
          */
         protected final function instantiateUUID(): void
         {
-            $i = new UUIDToken();
-            $this->setUuid( $i );
+            $this->setUuid(
+                new UUIDToken( generate: true )
+            );
         }
 
         // Variables

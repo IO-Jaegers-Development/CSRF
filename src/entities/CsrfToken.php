@@ -16,9 +16,12 @@
         /**
          *
          */
-        public function __construct()
+        public function __construct( bool $generate_uuid = true )
         {
-            $this->instantiateUUID();
+            if( $generate_uuid )
+            {
+                $this->instantiateUUID();
+            }
         }
 
 

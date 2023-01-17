@@ -6,7 +6,7 @@
 
     use IOJaegers\CSRF\entities\CsrfController;
     use IOJaegers\CSRF\entities\CsrfLabelFactory;
-    use IOJaegers\CSRF\singleton\CsrfSingleton;
+    use IOJaegers\CSRF\entities\templates\singleton\CsrfSingleton;
 
 
     /**
@@ -30,6 +30,15 @@
                 )
             );
         }
+
+        // Variables
+            // Global Version
+        private static ?CSRF $csrf = null;
+
+            // Local variables
+        private ?CsrfController $controller = null;
+        private ?CsrfLabelFactory $labelFactory = null;
+
 
         /**
          * @return void
@@ -60,14 +69,6 @@
             $this->getLabelFactory()->generateLabel();
             $this->getController()->save();
         }
-
-        // Variables
-            // Global Version
-        private static ?CSRF $csrf = null;
-
-            // Local variables
-        private ?CsrfController $controller = null;
-        private ?CsrfLabelFactory $labelFactory = null;
 
 
         // Wrapper functions
