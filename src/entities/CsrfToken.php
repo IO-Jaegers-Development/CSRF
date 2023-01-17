@@ -4,6 +4,8 @@
      */
     namespace IOJaegers\CSRF\entities;
 
+    use IOJaegers\CSRF\entities\templates\CsrfTokenTemplate;
+
 
     /**
      *
@@ -16,7 +18,7 @@
          */
         public function __construct()
         {
-            $this->setUuid( new UUIDToken() );
+            $this->instantiateUUID();
         }
 
 

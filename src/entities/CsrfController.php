@@ -15,7 +15,7 @@
          */
         public function __construct()
         {
-
+            $this->token = new CsrfToken();
         }
 
         /**
@@ -34,23 +34,25 @@
 
         }
 
+
         // Variable
-        private ?string $token = null;
+        private ?CsrfToken $token = null;
+        const zero = 0;
 
         /**
          * @return string|null
          */
-        public final function getToken(): ?string
+        public final function getTokenSecret(): ?string
         {
-            return $this->token;
+            return $this->token->getToken();
         }
 
         /**
          * @param string|null $token
          */
-        public final function setToken( ?string $token ): void
+        public final function setTokenSecret( ?string $token ): void
         {
-            $this->token = $token;
+            $this->token->setToken( $token );
         }
 
         /**
@@ -86,6 +88,5 @@
             return strlen( $this->token );
         }
 
-        const zero = 0;
     }
 ?>

@@ -30,7 +30,6 @@
             );
         }
 
-
         // Variables
         private CsrfController|null $controller = null;
         private Randomizer|null $random = null;
@@ -48,7 +47,7 @@
             $label = bin2hex( $bytes );
 
             $controller = $this->getController();
-            $controller->setToken( $label );
+            $controller->setTokenSecret( $label );
         }
 
 
