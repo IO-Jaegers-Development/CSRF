@@ -3,6 +3,7 @@
     "description": "CSRF security with different interfaces and drivers. For the Storage and how to use it.",
     "type": "library",
     "license": "MIT",
+
     "autoload":
     {
         "psr-4":
@@ -10,6 +11,7 @@
             "IOJaegers\\CSRF\\": "src/"
         }
     },
+
     "authors":
     [
         {
@@ -17,9 +19,12 @@
             "email": "kent.vejrup.madsen@designermadsen.dk"
         }
     ],
+
     "require":
     {
+        "php": ">=8.1",
         "io-jaegers/hrbf": "dev-main"
     },
+
     "minimum-stability": "dev"
 }
